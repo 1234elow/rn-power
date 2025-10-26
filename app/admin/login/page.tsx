@@ -73,7 +73,7 @@ export default function AdminLogin() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                placeholder="admin@renewedpower.com"
+                placeholder="Enter your admin email"
               />
             </div>
 
