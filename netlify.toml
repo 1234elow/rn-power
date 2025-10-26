@@ -2,7 +2,6 @@
 
 [build]
   command = "npm run build"
-  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"
@@ -12,13 +11,6 @@
 # Enable Next.js Runtime for serverless functions and middleware
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-
-# Redirect rules for Next.js routing
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/___netlify-handler"
-  status = 200
-  force = false
 
 # Headers for security and caching
 [[headers]]
