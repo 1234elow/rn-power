@@ -43,7 +43,7 @@
 # Environment variables to configure in Netlify Dashboard:
 # NEXTAUTH_URL=https://yourdomain.netlify.app
 # NEXTAUTH_SECRET=your-secret-key
-# ADMIN_EMAIL=admin@renewedpower.com
+# ADMIN_EMAIL=your-admin-email
 # ADMIN_PASSWORD=your-secure-password
 # DATABASE_URL=your-supabase-database-url
 # NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
