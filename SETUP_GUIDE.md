@@ -72,7 +72,7 @@ Your `.env.local` file is already configured with:
 - Admin login details
 
 **IMPORTANT**: Change the default admin password!
-- Current: `ChangeThisPassword123!`
+- Current: Set in your `.env.local` file
 - Login at `/admin/login` and update in settings
 
 ### Step 3: Start the Development Server
@@ -86,9 +86,9 @@ The application will be available at: http://localhost:3000
 ### Step 4: Admin Login
 
 1. Go to: http://localhost:3000/admin/login
-2. Login with:
-   - Email: `admin@renewedpower.com`
-   - Password: `ChangeThisPassword123!`
+2. Login with credentials from your `.env.local` file:
+   - Email: Value of `ADMIN_EMAIL`
+   - Password: Value of `ADMIN_PASSWORD`
 
 ### Step 5: Configure Stripe
 
