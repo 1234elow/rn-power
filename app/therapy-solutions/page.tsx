@@ -193,7 +193,7 @@ export default function TherapySolutions() {
       <section className="py-16 bg-white">
         <div className="container-custom text-center">
           <Link
-            href="/#contact"
+            href="/book-appointment"
             className="inline-block bg-accent-500 hover:bg-accent-600 text-white px-12 py-4 rounded-md text-lg font-medium transition-colors"
           >
             Book an Appointment

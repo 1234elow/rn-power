@@ -29,6 +29,13 @@ const services = {
     duration: "1 hr",
     price: 75,
   },
+  "family-therapy": {
+    id: "family-therapy",
+    name: "Family Therapy",
+    description: "Healing together as a family unit.",
+    duration: "1 hr",
+    price: 80,
+  },
 };
 
 export default function ServiceBookingClient() {

@@ -101,6 +101,7 @@ export default function Services() {
       description: "Individual therapy at ReNewed Power Inc. focuses on personalized treatment plans that address each client's unique experiences and challenges. Our licensed therapists create a safe and supportive environment, allowing individuals to explore their thoughts and feelings related to substance abuse and addiction. Through evidence-based practices, clients learn coping strategies, set achievable goals, and build resilience.",
       accentColor: "border-primary-500",
       bgGradient: "from-blue-50 to-white",
+      bookingLink: "/book-appointment/individual-therapy",
     },
     {
       number: "02",
@@ -108,6 +109,7 @@ export default function Services() {
       description: "Group therapy at ReNewed Power Inc. offers a dynamic space for individuals to connect and share their experiences in a supportive environment. Led by trained facilitators, these sessions encourage open dialogue and foster a sense of community among participants. Members gain insights from one another, learn new coping strategies, and develop valuable interpersonal skills.",
       accentColor: "border-accent-500",
       bgGradient: "from-lightBlue-100 to-white",
+      bookingLink: "/book-appointment/group-therapy",
     },
     {
       number: "03",
@@ -115,6 +117,7 @@ export default function Services() {
       description: "Family therapy at ReNewed Power Inc. recognizes the vital role that family dynamics play in the recovery journey. This therapeutic approach involves family members in the process, facilitating open communication and understanding among loved ones. Our skilled therapists guide families through discussions that address the impact of addiction, explore underlying issues, and strengthen relationships.",
       accentColor: "border-primary-500",
       bgGradient: "from-blue-50 to-white",
+      bookingLink: "/book-appointment/family-therapy",
     },
     {
       number: "04",
@@ -122,6 +125,7 @@ export default function Services() {
       description: "If attending treatment or counseling in person is inconvenient or impractical, ReNewed Power Inc offers Virtual Therapy options tailored to your needs. Our online sessions provide you with the flexibility to engage in recovery from the comfort of your own home. With certified professionals guiding you, you can access essential resources and support while maintaining your daily routines.",
       accentColor: "border-accent-500",
       bgGradient: "from-lightBlue-100 to-white",
+      bookingLink: "/book-appointment/virtual-therapy",
     },
   ];
 
@@ -238,7 +242,7 @@ export default function Services() {
 
                     <div className="flex flex-col sm:flex-row gap-4">
                       <Link
-                        href="/#contact"
+                        href={service.bookingLink}
                         className="inline-flex items-center justify-center bg-accent-500 hover:bg-accent-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
                       >
                         Book This Service

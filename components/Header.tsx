@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,10 +21,18 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
-              <div className="text-3xl font-script text-primary-600" style={{ fontFamily: 'cursive' }}>
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/logo.png"
+                alt="ReNewed Power"
+                width={80}
+                height={80}
+                className="h-16 w-auto md:h-20 md:w-auto"
+                priority
+              />
+              <span className="text-3xl md:text-4xl font-script text-primary-600" style={{ fontFamily: 'cursive' }}>
                 ReNewed Power
-              </div>
+              </span>
             </Link>
           </div>
 

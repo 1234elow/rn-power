@@ -1,54 +1,61 @@
 "use client";
 
+import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Hero() {
   const { elementRef, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={elementRef as any} className="relative pt-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 min-h-[600px]">
-        {/* Left Side - Blue Panel */}
-        <div className={`bg-accent-500 flex items-center justify-center p-8 md:p-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="text-center max-w-md">
-            {/* Logo Box */}
-            <div className="inline-block border-4 border-black px-6 py-3 mb-8">
-              <h2 className="text-3xl md:text-4xl font-script text-black" style={{ fontFamily: 'cursive' }}>
-                ReNewed<br/>Power
+    <section ref={elementRef as any} className="relative pt-20 min-h-screen flex items-center">
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900/90 via-primary-800/85 to-accent-600/80 -z-10"></div>
+
+      <div className="container-custom py-20">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Logo Badge */}
+          <div className={`inline-block mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+            <div className="glass-card px-8 py-4 rounded-full border-2 border-white/30">
+              <h2 className="text-2xl md:text-3xl font-script text-white" style={{ fontFamily: 'cursive' }}>
+                ReNewed Power
               </h2>
             </div>
+          </div>
 
-            {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl font-serif mb-6 text-black leading-tight">
-              Outpatient<br/>
-              Addiction Recovery<br/>
-              & Support
-            </h1>
+          {/* Main Headline - Bold & Inspiring */}
+          <h1 className={`text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Reclaim Your Power.<br/>
+            <span className="text-accent-300">Rebuild Your Life.</span>
+          </h1>
 
-            {/* Tagline */}
-            <p className="text-lg text-gray-800 mb-6">
-              Empowering You to Reclaim Your Life
-            </p>
+          {/* Subheadline */}
+          <p className={`text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 max-w-3xl mx-auto font-light transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Evidence-based addiction recovery and therapy services designed to empower you on your journey to lasting transformation.
+          </p>
 
-            {/* Scroll Indicator */}
-            <div className="flex justify-center">
-              <svg className="w-6 h-6 text-black animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {/* CTA Buttons */}
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <Link
+              href="#services"
+              className="btn-primary text-lg px-8 py-4 rounded-full font-semibold shadow-2xl hover:shadow-accent-500/50 transition-all transform hover:scale-105"
+            >
+              Explore Our Services
+            </Link>
+            <Link
+              href="#about"
+              className="glass-card text-white text-lg px-8 py-4 rounded-full font-semibold border-2 border-white/30 hover:border-white/60 transition-all transform hover:scale-105"
+            >
+              Learn Our Approach
+            </Link>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className={`mt-16 transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-white/60 text-sm uppercase tracking-wider">Discover More</span>
+              <svg className="w-6 h-6 text-white/60 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Side - Image */}
-        <div className={`relative bg-gray-200 min-h-[400px] md:min-h-[600px] transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-          {/* Placeholder for therapy room image */}
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300">
-            <div className="text-center text-gray-600 p-8">
-              <svg className="w-24 h-24 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <p className="text-sm">Therapy Room Image Placeholder</p>
-              <p className="text-xs mt-2">Replace with actual image in /public folder</p>
             </div>
           </div>
         </div>

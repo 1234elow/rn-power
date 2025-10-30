@@ -28,12 +28,32 @@ export default function BookAppointment() {
       duration: "1 hr",
       price: 75,
     },
+    {
+      id: "family-therapy",
+      name: "Family Therapy",
+      description: "Healing together as a family unit.",
+      duration: "1 hr",
+      price: 80,
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-cyan-50 to-blue-50">
       {/* Header */}
       <div className="container-custom py-20">
+        {/* Back Button */}
+        <div className="mb-8">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Home
+          </Link>
+        </div>
+
         <div
           ref={elementRef as any}
           className={`text-center mb-16 transition-all duration-1000 ${
