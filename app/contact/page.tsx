@@ -100,8 +100,27 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission here
+
+    // Create email content from form data
+    const subject = `Contact Form Submission from ${formData.firstName} ${formData.lastName}`;
+    const body = `
+First Name: ${formData.firstName}
+Last Name: ${formData.lastName}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Message:
+${formData.message}
+
+---
+This email was generated from the ReNewed Power contact form.
+    `.trim();
+
+    // Create mailto link with pre-filled content
+    const mailtoLink = `mailto:admin@rnpowerinc.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Open user's mail app
+    window.location.href = mailtoLink;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -308,14 +327,14 @@ export default function Contact() {
       <section className="pb-0">
         <div className="w-full h-96">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.290494716907!2d-111.90970408479!3d33.39471258078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b0bc8d4d4e5a5%3A0x4e3e7e3e7e3e7e3e!2s1270%20E%20Broadway%20Rd%2C%20Tempe%2C%20AZ%2085282!5e0!3m2!1sen!2sus!4v1234567890123"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2975.576892!2d-87.606891!3d41.775002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e296a1b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2s615%20E%2067th%20St%2C%20Chicago%2C%20IL%2060637!5e0!3m2!1sen!2sus!4v1234567890123"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="ReNewed Power Location"
+            title="ReNewed Power Location - Chicago"
           />
         </div>
       </section>

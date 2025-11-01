@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export default function Blog() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [expandedPost, setExpandedPost] = useState<number | null>(null);
+
   // Add floating orbs animation styles
   useEffect(() => {
     const style = document.createElement('style');
@@ -166,99 +168,42 @@ export default function Blog() {
       author: "Shatakia Niles",
       date: "Jun 21",
       readTime: "2 min read",
-      excerpt: "Substance abuse and addiction can impact individuals of all backgrounds, leading to significant challenges in their personal and professional lives. Our comprehensive therapy programs are designed to address the root causes of addiction...",
-      views: 12,
-      comments: 0,
-      image: "/api/placeholder/600/400",
-      imageHeight: "60%"
+      gradient: "from-blue-400 to-cyan-400",
+      content: [
+        "Substance abuse and addiction can impact individuals of all backgrounds, leading to significant challenges in their personal and professional lives. Seeking help is the first step towards recovery, and finding the right therapy program can make all the difference in one's journey towards sobriety.",
+        "At Behavioral Health Therapy, we offer a transformative approach to substance abuse therapy that is centered around individual needs and goals. Our outpatient treatment programs are designed to provide comprehensive care through a combination of individual counseling, group therapy, family therapy, and virtual sessions. By offering a variety of therapeutic options, we aim to support our clients in their recovery process and address the underlying issues contributing to their substance abuse.",
+        "Our team of experienced therapists and counselors are dedicated to providing personalized care in a compassionate and supportive environment. We understand that each individual's journey towards recovery is unique, which is why we tailor our treatment plans to meet their specific needs. Through our holistic approach to therapy, we address not only the physical aspects of addiction but also the mental and emotional factors that play a role in sustaining substance abuse.",
+        "In addition to our therapy services, we offer online courses and resources on our website to support our clients in their recovery journey. These resources cover a range of topics, from coping mechanisms and relapse prevention to mindfulness practices and stress management techniques. By providing access to these tools, we empower individuals to take an active role in their recovery and equip them with the skills they need to maintain sobriety in the long term.",
+        "Whether you are seeking help for yourself or a loved one, Behavioral Health Therapy is here to support you every step of the way. Our commitment to delivering high-quality care and services is reflected in our dedication to helping individuals reclaim their lives from the grip of addiction. If you or someone you know is struggling with substance abuse, know that there is hope for a brighter future. Contact us today to learn more about our transformative substance abuse therapy programs and start your journey towards recovery."
+      ]
     },
     {
-      title: "Empower Your Recovery Journey with Holistic Outpatient Therapy",
+      title: "Holistic Outpatient Therapy",
       author: "Shatakia Niles",
       date: "Jun 21",
       readTime: "1 min read",
-      excerpt: "Embark on a Holistic Journey to Recovery. Recovering from addiction and substance abuse is a challenging path, often requiring a comprehensive approach that addresses not just the physical aspects but also the emotional...",
-      views: 8,
-      comments: 0,
-      image: "/api/placeholder/600/500",
-      imageHeight: "75%"
+      gradient: "from-purple-400 to-pink-400",
+      content: [
+        "Embark on a Holistic Journey to Recovery. Recovering from addiction and substance abuse is a challenging path, often requiring a multifaceted approach to heal the mind, body, and spirit. Holistic outpatient therapy is a powerful tool in this journey, offering a comprehensive and personalized approach to treatment that goes beyond traditional methods.",
+        "At our Behavioral Health Therapy center, we specialize in providing outpatient treatment that combines individual, group, family, and virtual therapy sessions to address the unique needs of each individual. Our team of dedicated therapists and counselors are committed to creating a safe and supportive environment where clients can explore their emotions, behaviors, and beliefs while developing coping strategies and life skills for long-term recovery.",
+        "Our holistic approach to therapy integrates traditional psychotherapy with complementary therapies such as mindfulness, yoga, art therapy, and meditation to promote healing on a holistic level. By addressing the physical, emotional, and spiritual aspects of addiction, clients can gain a deeper understanding of themselves and their triggers, leading to lasting transformation and growth.",
+        "In addition to therapy sessions, we offer online courses and resources on our website to support clients on their recovery journey. Whether you're located in Arizona or Chicago, our goal is to empower individuals to reclaim their lives and build a brighter future free from addiction.",
+        "If you or a loved one is ready to take the first step towards recovery, consider exploring the benefits of holistic outpatient therapy. Our new company is dedicated to delivering high-quality care and services, helping you navigate the path to healing and wellness. Let us support you on your journey to recovery and transformation."
+      ]
     },
     {
       title: "Virtual Counseling: Personalized Care for Addiction Recovery",
       author: "Shatakia Niles",
       date: "Jun 21",
       readTime: "2 min read",
-      excerpt: "In today's fast-paced world, where convenience is key, finding effective solutions for addiction recovery has become more attainable than ever. Virtual counseling offers a flexible and personalized approach...",
-      views: 15,
-      comments: 1,
-      image: "/api/placeholder/600/350",
-      imageHeight: "50%"
-    },
-    {
-      title: "Understanding Cognitive Behavioral Therapy for Addiction",
-      author: "Shatakia Niles",
-      date: "Jun 20",
-      readTime: "3 min read",
-      excerpt: "Cognitive Behavioral Therapy (CBT) has proven to be one of the most effective treatments for addiction. Learn how this evidence-based approach can help you identify and change negative thought patterns...",
-      views: 22,
-      comments: 2,
-      image: "/api/placeholder/600/450",
-      imageHeight: "70%"
-    },
-    {
-      title: "The Role of Family in Addiction Recovery",
-      author: "Shatakia Niles",
-      date: "Jun 19",
-      readTime: "2 min read",
-      excerpt: "Family support plays a crucial role in the recovery journey. Discover how family therapy can strengthen relationships and create a supportive environment for lasting recovery...",
-      views: 18,
-      comments: 3,
-      image: "/api/placeholder/600/400",
-      imageHeight: "55%"
-    },
-    {
-      title: "Mindfulness and Meditation in Recovery",
-      author: "Shatakia Niles",
-      date: "Jun 18",
-      readTime: "3 min read",
-      excerpt: "Incorporating mindfulness practices into your recovery journey can provide powerful tools for managing stress, cravings, and emotional triggers. Learn practical techniques you can start using today...",
-      views: 25,
-      comments: 1,
-      image: "/api/placeholder/600/550",
-      imageHeight: "80%"
-    },
-    {
-      title: "Dual Diagnosis: Treating Co-Occurring Disorders",
-      author: "Shatakia Niles",
-      date: "Jun 17",
-      readTime: "4 min read",
-      excerpt: "Understanding the connection between mental health and addiction is essential for effective treatment. Our integrated approach addresses both conditions simultaneously for better outcomes...",
-      views: 14,
-      comments: 0,
-      image: "/api/placeholder/600/380",
-      imageHeight: "58%"
-    },
-    {
-      title: "Building a Strong Support Network in Recovery",
-      author: "Shatakia Niles",
-      date: "Jun 16",
-      readTime: "2 min read",
-      excerpt: "Recovery is not a journey you have to take alone. Learn how to build and maintain a strong support network that will help you stay committed to your recovery goals...",
-      views: 20,
-      comments: 2,
-      image: "/api/placeholder/600/420",
-      imageHeight: "65%"
-    },
-    {
-      title: "Overcoming Relapse: Strategies for Long-Term Success",
-      author: "Shatakia Niles",
-      date: "Jun 15",
-      readTime: "3 min read",
-      excerpt: "Relapse doesn't mean failure—it's an opportunity to learn and strengthen your recovery. Discover evidence-based strategies to prevent relapse and maintain long-term sobriety...",
-      views: 30,
-      comments: 4,
-      image: "/api/placeholder/600/480",
-      imageHeight: "72%"
+      gradient: "from-cyan-400 to-teal-400",
+      content: [
+        "In today's fast-paced world, where convenience is key, finding effective solutions for addiction recovery has become more attainable through modern advancements in therapy. Take a journey towards personalized care and support with the innovative approach of Virtual Counseling.",
+        "Imagine being able to access transformative care, mental health support, and holistic therapy from the comfort of your own home. With Virtual Counseling, individuals struggling with substance abuse and addiction recovery can now benefit from individual, group, and family therapy sessions online. This method of therapy provides a level of convenience and flexibility that traditional in-person sessions may not offer.",
+        "Virtual Counseling is not just about providing therapy sessions through a screen; it encompasses a holistic approach to recovery. It allows individuals to engage in online courses, access valuable resources, and receive the personalized care they need to reclaim their lives. Whether you are in Arizona or Chicago, Virtual Counseling brings the expertise and support of experienced therapists right to your doorstep.",
+        "The Behavioral Health Therapy business, a new company dedicated to delivering high-quality care and services, specializes in Outpatient Treatment for substance abuse and addiction recovery. With a focus on providing personalized care in a supportive environment, they are committed to empowering individuals on their journey to recovery. By combining traditional therapy methods with modern technology, they aim to create a comprehensive and effective treatment plan tailored to each individual's needs.",
+        "Virtual Counseling offers a unique opportunity for those seeking addiction recovery to receive personalized care in a convenient and accessible way. Through the power of technology and the expertise of experienced therapists, individuals can embark on a transformative journey towards healing and reclaiming their lives. Embrace the future of therapy with Virtual Counseling and take the first step towards a brighter tomorrow."
+      ]
     }
   ];
 
@@ -303,80 +248,94 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Blog Posts - Masonry Layout */}
+      {/* Blog Posts - Grid Layout */}
       <section className="py-20 bg-white">
         <div className="container-custom max-w-7xl mx-auto px-4">
-          <div className="masonry-grid">
-            {blogPosts.map((post, index) => (
-              <div key={index} className="masonry-item">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {blogPosts.map((post, index) => {
+              const isExpanded = expandedPost === index;
+              return (
                 <div
-                  ref={(el) => { cardRefs.current[index] = el; }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-100 overflow-hidden border border-gray-100 group"
-                  style={{ transformStyle: 'preserve-3d', willChange: 'transform' }}
+                  key={index}
+                  className={`transition-all duration-500 ${isExpanded ? 'md:col-span-3' : ''}`}
                 >
-                  {/* Image placeholder */}
-                  <div className="w-full bg-gradient-to-br from-primary-100 to-accent-100 relative overflow-hidden" style={{ paddingBottom: post.imageHeight }}>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <svg className="w-20 h-20 text-primary-300" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    {/* Author and date */}
-                    <div className="flex items-center text-sm text-gray-500 mb-3">
-                      <div className="flex items-center">
-                        <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                        </svg>
-                        <span>{post.author}</span>
-                      </div>
-                      <span className="mx-2">•</span>
-                      <span>{post.date}</span>
-                      <span className="mx-2">•</span>
-                      <span>{post.readTime}</span>
-                    </div>
-
-                    {/* Title */}
-                    <h2 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
-                      {post.title}
-                    </h2>
-
-                    {/* Excerpt */}
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-
-                    {/* Footer */}
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <div className="flex items-center space-x-4 text-sm text-gray-500">
-                        <div className="flex items-center">
-                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  <div
+                    ref={(el) => { cardRefs.current[index] = el; }}
+                    className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-100 overflow-hidden border border-gray-100 group h-full flex flex-col"
+                    style={{ transformStyle: 'preserve-3d', willChange: 'transform' }}
+                  >
+                    {/* Image placeholder - Only show when collapsed */}
+                    {!isExpanded && (
+                      <div className={`w-full bg-gradient-to-br ${post.gradient} relative overflow-hidden h-48`}>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <svg className="w-16 h-16 text-white opacity-50 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                           </svg>
-                          <span>{post.views}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                          </svg>
-                          <span>{post.comments}</span>
                         </div>
                       </div>
-                      <button className="text-primary-600 hover:text-primary-700 font-medium text-sm flex items-center">
-                        Read More
-                        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    )}
+
+                    {/* Content */}
+                    <div className="p-6 flex-grow flex flex-col">
+                      {/* Title */}
+                      <h2 className={`font-serif text-gray-900 mb-3 group-hover:text-primary-600 transition-colors ${isExpanded ? 'text-3xl md:text-4xl' : 'text-xl'}`}>
+                        {post.title}
+                      </h2>
+
+                      {/* Author and date */}
+                      <div className="flex items-center text-sm text-gray-500 mb-4">
+                        <div className="flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                          </svg>
+                          <span>{post.author}</span>
+                        </div>
+                        <span className="mx-2">•</span>
+                        <span>{post.date}</span>
+                        <span className="mx-2">•</span>
+                        <span>{post.readTime}</span>
+                      </div>
+
+                      {/* Article Content - Only show when expanded */}
+                      {isExpanded && (
+                        <div className="prose prose-lg max-w-none mb-6">
+                          {post.content.map((paragraph, pIndex) => (
+                            <p key={pIndex} className="text-gray-700 leading-relaxed mb-4">
+                              {paragraph}
+                            </p>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Preview - Only show when collapsed */}
+                      {!isExpanded && (
+                        <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                          {post.content[0]}
+                        </p>
+                      )}
+
+                      {/* Read More / Show Less Button */}
+                      <button
+                        onClick={() => {
+                          setExpandedPost(isExpanded ? null : index);
+                          if (!isExpanded) {
+                            setTimeout(() => {
+                              cardRefs.current[index]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 100);
+                          }
+                        }}
+                        className="text-primary-600 hover:text-primary-700 font-medium text-sm flex items-center self-start"
+                      >
+                        {isExpanded ? 'Show Less' : 'Read More'}
+                        <svg className={`w-4 h-4 ml-1 transition-transform ${isExpanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </button>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
