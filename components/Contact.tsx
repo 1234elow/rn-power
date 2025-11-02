@@ -106,7 +106,7 @@ export default function Contact() {
                 </div>
                 <div className="ml-4">
                   <h4 className="text-lg font-semibold text-gray-900">Phone</h4>
-                  <p className="text-gray-600">480-687-3368</p>
+                  <p className="text-gray-600">(872) 731-2100</p>
                 </div>
               </div>
 

@@ -1,14 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, phone, service, message } = body;
+    const { firstName, lastName, email, phone, message } = body;
 
     // Validate required fields
-    if (!name || !email || !message) {
+    if (!firstName || !email || !message) {
       return NextResponse.json(
-        { error: "Name, email, and message are required" },
+        { error: "First name, email, and message are required" },
         { status: 400 }
       );
     }
@@ -22,23 +25,41 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Here you would typically:
-    // 1. Send an email using a service like SendGrid, Resend, or Nodemailer
-    // 2. Store the contact in a database
-    // 3. Send to a CRM system
-    //
-    // For now, we'll just log it and return success
-    console.log("Contact form submission:", {
-      name,
-      email,
-      phone,
-      service,
-      message,
-      timestamp: new Date().toISOString(),
+    // Send email using Resend
+    // NOTE: In production, verify your domain at resend.com/domains and update the 'from' email
+    const { data, error } = await resend.emails.send({
+      from: "ReNewed Power Contact Form <onboarding@resend.dev>",
+      to: ["samuellowe27@gmail.com"], // Change to admin@rnpowerinc.com after domain verification
+      subject: `Contact Form Submission from ${firstName} ${lastName || ""}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>First Name:</strong> ${firstName}</p>
+        ${lastName ? `<p><strong>Last Name:</strong> ${lastName}</p>` : ""}
+        <p><strong>Email:</strong> ${email}</p>
+        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, "<br>")}</p>
+        <hr>
+        <p style="color: #666; font-size: 12px;">This email was generated from the ReNewed Power contact form.</p>
+      `,
     });
 
-    // Simulate email sending delay
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    if (error) {
+      console.error("Error sending email:", error);
+      return NextResponse.json(
+        { error: "Failed to send email" },
+        { status: 500 }
+      );
+    }
+
+    console.log("Contact form email sent:", {
+      firstName,
+      lastName,
+      email,
+      phone,
+      timestamp: new Date().toISOString(),
+      emailId: data?.id,
+    });
 
     return NextResponse.json(
       { success: true, message: "Contact form submitted successfully" },

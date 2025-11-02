@@ -13,6 +13,11 @@ export default function Contact() {
     message: "",
     consent: false,
   });
+  const [status, setStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Add floating orbs animation styles
   useEffect(() => {
@@ -98,29 +103,49 @@ export default function Contact() {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: null, message: "" });
 
-    // Create email content from form data
-    const subject = `Contact Form Submission from ${formData.firstName} ${formData.lastName}`;
-    const body = `
-First Name: ${formData.firstName}
-Last Name: ${formData.lastName}
-Email: ${formData.email}
-Phone: ${formData.phone}
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-Message:
-${formData.message}
+      const data = await response.json();
 
----
-This email was generated from the ReNewed Power contact form.
-    `.trim();
-
-    // Create mailto link with pre-filled content
-    const mailtoLink = `mailto:admin@rnpowerinc.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    // Open user's mail app
-    window.location.href = mailtoLink;
+      if (response.ok) {
+        setStatus({
+          type: "success",
+          message: "Thank you for contacting us! We'll get back to you soon.",
+        });
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+          consent: false,
+        });
+      } else {
+        setStatus({
+          type: "error",
+          message: data.error || "Something went wrong. Please try again.",
+        });
+      }
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: "Failed to send message. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -259,12 +284,26 @@ This email was generated from the ReNewed Power contact form.
               </label>
             </div>
 
+            {/* Status Message */}
+            {status.type && (
+              <div
+                className={`p-4 rounded-md ${
+                  status.type === "success"
+                    ? "bg-green-50 text-green-800"
+                    : "bg-red-50 text-red-800"
+                }`}
+              >
+                {status.message}
+              </div>
+            )}
+
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-primary-800 text-white py-4 rounded-lg font-medium text-lg hover:bg-primary-900 transition-colors shadow-lg"
+              disabled={isSubmitting || !formData.consent}
+              className="w-full bg-primary-800 text-white py-4 rounded-lg font-medium text-lg hover:bg-primary-900 transition-colors shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Submit
+              {isSubmitting ? "Sending..." : "Submit"}
             </button>
           </form>
         </div>
@@ -285,10 +324,10 @@ This email was generated from the ReNewed Power contact form.
           {/* Contact Details */}
           <div className="space-y-3 text-gray-800 text-lg mb-6">
             <p>
-              <span className="font-semibold italic">Arizona:</span> 1270 E Broadway Rd, Ste 122, Tempe, AZ 85282
+              <span className="font-semibold italic">Chicago:</span> 615 E 67th St, Chicago, IL 60637
             </p>
             <p>
-              <span className="font-semibold italic">Chicago:</span> 621 E 67th St, Chicago, IL 60637
+              <span className="font-semibold italic">Arizona:</span> 1270 E Broadway Rd, Ste 122, Tempe, AZ 85282
             </p>
             <p>
               <span className="font-semibold italic">Hours:</span> Monday - Friday | 9 AM - 5 PM
@@ -301,8 +340,8 @@ This email was generated from the ReNewed Power contact form.
             </p>
             <p>
               <span className="font-semibold italic">Tel:</span>{" "}
-              <a href="tel:480-687-3368" className="text-primary-600 hover:underline">
-                480-687-3368
+              <a href="tel:18727312100" className="text-primary-600 hover:underline">
+                (872) 731-2100
               </a>
             </p>
           </div>

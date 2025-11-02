@@ -95,10 +95,10 @@ export default function Footer() {
               <li>Chicago, IL</li>
               <li className="pt-3">
                 <a
-                  href="tel:480-687-3368"
+                  href="tel:18727312100"
                   className="hover:text-white transition-colors"
                 >
-                  480-687-3368
+                  (872) 731-2100
                 </a>
               </li>
               <li>
