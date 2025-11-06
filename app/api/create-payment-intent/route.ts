@@ -9,14 +9,10 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { amount, bookingData } = body;
 
-    // Fetch Stripe keys from database
-    const { data: settings, error: settingsError } = await supabase
-      .from('admin_settings')
-      .select('stripe_secret_key')
-      .eq('id', SETTINGS_ID)
-      .single();
+    // Get Stripe secret key from environment variables
+    const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
-    if (settingsError || !settings?.stripe_secret_key) {
+    if (!stripeSecretKey) {
       return NextResponse.json(
         { error: 'Stripe is not configured. Please contact the administrator.' },
         { status: 500 }
@@ -24,7 +20,7 @@ export async function POST(request: Request) {
     }
 
     // Initialize Stripe
-    const stripe = new Stripe(settings.stripe_secret_key, {
+    const stripe = new Stripe(stripeSecretKey, {
       apiVersion: '2025-09-30.clover',
     });
 

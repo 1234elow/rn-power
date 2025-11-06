@@ -16,14 +16,11 @@ export async function POST(request: Request) {
       );
     }
 
-    // Fetch Stripe keys from database
-    const { data: settings, error: settingsError } = await supabase
-      .from('admin_settings')
-      .select('stripe_secret_key, stripe_webhook_secret')
-      .eq('id', SETTINGS_ID)
-      .single();
+    // Get Stripe keys from environment variables
+    const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+    const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
-    if (settingsError || !settings?.stripe_secret_key) {
+    if (!stripeSecretKey) {
       return NextResponse.json(
         { error: 'Stripe is not configured' },
         { status: 500 }
@@ -31,18 +28,18 @@ export async function POST(request: Request) {
     }
 
     // Initialize Stripe
-    const stripe = new Stripe(settings.stripe_secret_key, {
+    const stripe = new Stripe(stripeSecretKey, {
       apiVersion: '2025-09-30.clover',
     });
 
     // Verify webhook signature
     let event: Stripe.Event;
     try {
-      if (settings.stripe_webhook_secret) {
+      if (webhookSecret) {
         event = stripe.webhooks.constructEvent(
           body,
           signature,
-          settings.stripe_webhook_secret
+          webhookSecret
         );
       } else {
         // If no webhook secret, parse event directly (less secure but works for testing)
