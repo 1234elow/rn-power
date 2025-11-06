@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase';
 
 const SETTINGS_ID = '00000000-0000-0000-0000-000000000001';
 
@@ -60,13 +60,13 @@ export async function POST(request: Request) {
         console.log('Payment succeeded:', paymentIntent.id);
 
         // Update booking status
-        await supabase
+        await supabaseAdmin
           .from('bookings')
           .update({ payment_status: 'completed' })
           .eq('payment_intent_id', paymentIntent.id);
 
         // Update payment record
-        await supabase
+        await supabaseAdmin
           .from('payments')
           .update({ status: 'succeeded' })
           .eq('stripe_payment_intent_id', paymentIntent.id);
@@ -78,13 +78,13 @@ export async function POST(request: Request) {
         console.log('Payment failed:', failedIntent.id);
 
         // Update booking status
-        await supabase
+        await supabaseAdmin
           .from('bookings')
           .update({ payment_status: 'failed' })
           .eq('payment_intent_id', failedIntent.id);
 
         // Update payment record
-        await supabase
+        await supabaseAdmin
           .from('payments')
           .update({ status: 'failed' })
           .eq('stripe_payment_intent_id', failedIntent.id);
@@ -97,7 +97,7 @@ export async function POST(request: Request) {
 
         if (charge.payment_intent) {
           // Update payment record
-          await supabase
+          await supabaseAdmin
             .from('payments')
             .update({ status: 'refunded' })
             .eq('stripe_payment_intent_id', charge.payment_intent);

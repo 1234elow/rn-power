@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase';
 
 const SETTINGS_ID = '00000000-0000-0000-0000-000000000001';
 
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     });
 
     // Create booking in database
-    const { data: booking, error: bookingError } = await supabase
+    const { data: booking, error: bookingError } = await supabaseAdmin
       .from('bookings')
       .insert([
         {
@@ -67,13 +67,13 @@ export async function POST(request: Request) {
     });
 
     // Update booking with payment intent ID
-    await supabase
+    await supabaseAdmin
       .from('bookings')
       .update({ payment_intent_id: paymentIntent.id })
       .eq('id', booking.id);
 
     // Create payment record
-    await supabase.from('payments').insert([
+    await supabaseAdmin.from('payments').insert([
       {
         booking_id: booking.id,
         amount: amount,
