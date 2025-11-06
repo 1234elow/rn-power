@@ -49,7 +49,7 @@ export async function POST(request: Request) {
     if (bookingError || !booking) {
       console.error('Booking error:', bookingError);
       return NextResponse.json(
-        { error: 'Failed to create booking' },
+        { error: `Failed to create booking: ${bookingError?.message || 'Unknown error'}` },
         { status: 500 }
       );
     }
