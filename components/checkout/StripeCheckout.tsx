@@ -96,21 +96,17 @@ export default function StripeCheckout({ amount, bookingData, onSuccess }: Strip
 
   const initializeStripe = async () => {
     try {
-      // Fetch publishable key from database
-      const { data: settings, error: settingsError } = await supabase
-        .from('admin_settings')
-        .select('stripe_publishable_key')
-        .eq('id', SETTINGS_ID)
-        .single();
+      // Get publishable key from environment variable
+      const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 
-      if (settingsError || !settings?.stripe_publishable_key) {
+      if (!publishableKey) {
         setError('Payment system is not configured. Please contact support.');
         setLoading(false);
         return;
       }
 
       // Initialize Stripe
-      const stripe = await loadStripe(settings.stripe_publishable_key);
+      const stripe = await loadStripe(publishableKey);
       setStripePromise(stripe);
 
       // Create payment intent
