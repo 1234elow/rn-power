@@ -111,9 +111,9 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start">
-                <div className="flex-shrink-0 w-12 h-12 bg-lightBlue-200 rounded-lg flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center">
                   <svg
-                    className="w-6 h-6 text-primary-600"
+                    className="w-6 h-6 text-emerald-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -133,9 +133,9 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start">
-                <div className="flex-shrink-0 w-12 h-12 bg-lightBlue-200 rounded-lg flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
                   <svg
-                    className="w-6 h-6 text-primary-600"
+                    className="w-6 h-6 text-teal-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -165,9 +165,9 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start">
-                <div className="flex-shrink-0 w-12 h-12 bg-lightBlue-200 rounded-lg flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center">
                   <svg
-                    className="w-6 h-6 text-primary-600"
+                    className="w-6 h-6 text-emerald-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -315,7 +315,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-4 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-8 py-4 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>

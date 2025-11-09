@@ -52,7 +52,7 @@
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     transform: translateY(-8px);
-    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+    box-shadow: 0 12px 40px 0 rgba(16, 185, 129, 0.3), 0 0 20px 0 rgba(20, 184, 166, 0.2);
   }
 
   .glass-dark {

@@ -27,7 +27,7 @@ export default function Blog() {
       writer: "Shatakia Niles",
       date: "Jun 21",
       readTime: "1 min read",
-      gradient: "from-purple-400 to-pink-400",
+      gradient: "from-emerald-400 to-teal-400",
       content: [
         "Embark on a Holistic Journey to Recovery. Recovering from addiction and substance abuse is a challenging path, often requiring a multifaceted approach to heal the mind, body, and spirit. Holistic outpatient therapy is a powerful tool in this journey, offering a comprehensive and personalized approach to treatment that goes beyond traditional methods.",
         "At our Behavioral Health Therapy center, we specialize in providing outpatient treatment that combines individual, group, family, and virtual therapy sessions to address the unique needs of each individual. Our team of dedicated therapists and counselors are committed to creating a safe and supportive environment where clients can explore their emotions, behaviors, and beliefs while developing coping strategies and life skills for long-term recovery.",

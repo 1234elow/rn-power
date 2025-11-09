@@ -175,8 +175,7 @@ export default function TherapySolutions() {
               <div key={index} className="text-center">
                 <TherapyIcon />
                 <h3
-                  className="text-2xl md:text-3xl font-script text-primary-600 my-4"
-                  style={{ fontFamily: 'cursive' }}
+                  className="text-2xl md:text-3xl font-bold text-primary-600 my-4"
                 >
                   {therapy.name}
                 </h3>

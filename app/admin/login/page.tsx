@@ -43,7 +43,7 @@ export default function AdminLogin() {
         {/* Logo/Title */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-block">
-            <h1 className="text-4xl font-script text-primary-600 mb-2" style={{ fontFamily: 'cursive' }}>
+            <h1 className="text-4xl font-bold text-primary-600 mb-2">
               ReNewed Power
             </h1>
           </Link>

@@ -12,7 +12,7 @@ export default function About() {
       title: "Evidence-Based Care",
       description: "Proven methodologies backed by research and clinical expertise",
       icon: (
-        <svg className="w-10 h-10 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-10 h-10 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
@@ -21,7 +21,7 @@ export default function About() {
       title: "Holistic Approach",
       description: "Addressing mind, body, and spirit for complete healing",
       icon: (
-        <svg className="w-10 h-10 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-10 h-10 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
         </svg>
       ),
@@ -30,7 +30,7 @@ export default function About() {
       title: "Personalized Support",
       description: "Tailored treatment plans designed around your unique needs",
       icon: (
-        <svg className="w-10 h-10 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-10 h-10 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
       ),
@@ -48,8 +48,8 @@ export default function About() {
       <div className="container-custom">
         {/* Header */}
         <div ref={elementRef as any} className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-block px-6 py-2 bg-accent-100 rounded-full mb-4">
-            <span className="text-accent-700 font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
+          <div className="inline-block px-6 py-2 bg-emerald-100 rounded-full mb-4">
+            <span className="text-emerald-700 font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
           </div>
           <h2 className="text-5xl md:text-7xl font-serif text-gradient mb-6">
             Our Mission & Approach
@@ -65,7 +65,7 @@ export default function About() {
           <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="glass-card rounded-3xl p-10 md:p-12 relative overflow-hidden">
               {/* Accent gradient */}
-              <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary-500 to-accent-500"></div>
+              <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-emerald-500 to-teal-500"></div>
 
               <h3 className="text-3xl md:text-4xl font-serif text-gray-900 mb-6">
                 Transform Your Life with ReNewed Power

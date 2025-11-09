@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-script mb-4" style={{ fontFamily: 'cursive' }}>ReNewed Power</h3>
+            <h3 className="text-2xl font-bold mb-4">ReNewed Power</h3>
             <p className="text-gray-400 mb-4">
               Empowering individuals to reclaim their lives through compassionate,
               evidence-based outpatient addiction recovery and therapy services.
@@ -89,10 +89,10 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Locations</h4>
             <ul className="space-y-2 text-gray-400">
-              <li className="font-semibold text-gray-300">Arizona</li>
-              <li>Phoenix, AZ</li>
-              <li className="font-semibold text-gray-300 mt-3">Chicago</li>
-              <li>Chicago, IL</li>
+              <li className="font-semibold text-gray-300">Chicago</li>
+              <li>615 E 67th St, Chicago, IL 60637</li>
+              <li className="font-semibold text-gray-300 mt-3">Arizona</li>
+              <li>1270 E Broadway Rd, Ste 122, Tempe, AZ 85282</li>
               <li className="pt-3">
                 <a
                   href="tel:18727312100"

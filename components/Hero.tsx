@@ -16,7 +16,7 @@ export default function Hero() {
           {/* Logo Badge */}
           <div className={`inline-block mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <div className="glass-card px-8 py-4 rounded-full border-2 border-white/30">
-              <h2 className="text-2xl md:text-3xl font-script text-white" style={{ fontFamily: 'cursive' }}>
+              <h2 className="text-2xl md:text-3xl font-bold text-blue-900">
                 ReNewed Power
               </h2>
             </div>
@@ -43,7 +43,7 @@ export default function Hero() {
             </Link>
             <Link
               href="#about"
-              className="glass-card text-white text-lg px-8 py-4 rounded-full font-semibold border-2 border-white/30 hover:border-white/60 transition-all transform hover:scale-105"
+              className="glass-card text-blue-900 text-lg px-8 py-4 rounded-full font-semibold border-2 border-white/30 hover:border-white/60 transition-all transform hover:scale-105"
             >
               Learn Our Approach
             </Link>

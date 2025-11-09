@@ -30,7 +30,7 @@ export default function Header() {
                 className="h-16 w-auto md:h-20 md:w-auto"
                 priority
               />
-              <span className="text-3xl md:text-4xl font-script text-primary-600" style={{ fontFamily: 'cursive' }}>
+              <span className="text-2xl md:text-3xl font-bold text-primary-600">
                 ReNewed Power
               </span>
             </Link>

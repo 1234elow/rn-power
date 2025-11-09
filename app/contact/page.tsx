@@ -176,7 +176,7 @@ export default function Contact() {
           <h1 className="text-5xl md:text-6xl font-serif text-gray-900 mb-4">
             Get In Touch
           </h1>
-          <h2 className="text-3xl md:text-4xl font-script text-gray-800 mb-6" style={{ fontFamily: 'cursive' }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
             Contact Us for Transformation
           </h2>
           <p className="text-gray-700 text-lg max-w-2xl mx-auto">
@@ -315,7 +315,7 @@ export default function Contact() {
           {/* Logo */}
           <div className="mb-8">
             <div className="inline-block border-4 border-primary-600 px-8 py-4 rounded-lg">
-              <h3 className="text-4xl font-script text-primary-600" style={{ fontFamily: 'cursive' }}>
+              <h3 className="text-4xl font-bold text-primary-600">
                 ReNewed Power
               </h3>
             </div>

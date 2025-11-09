@@ -29,7 +29,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/admin/dashboard" className="flex items-center">
-                <span className="text-2xl font-script text-primary-600" style={{ fontFamily: 'cursive' }}>
+                <span className="text-2xl font-bold text-primary-600">
                   ReNewed Power
                 </span>
                 <span className="ml-3 px-2 py-1 text-xs font-medium bg-primary-100 text-primary-700 rounded">

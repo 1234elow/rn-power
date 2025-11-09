@@ -219,7 +219,7 @@ export default function Services() {
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <div
-                  className={`backdrop-blur-lg bg-white/70 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border-l-8 ${service.accentColor} overflow-hidden group border border-white/50`}
+                  className={`backdrop-blur-lg bg-white/70 rounded-2xl shadow-xl hover:shadow-emerald-500/30 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border-l-8 ${service.accentColor} overflow-hidden group border border-white/50`}
                 >
                   <div className="p-8 md:p-12">
                     <div className="flex items-start justify-between mb-6">
@@ -228,8 +228,7 @@ export default function Services() {
                           {service.number}
                         </span>
                         <h2
-                          className="text-4xl md:text-5xl font-script text-gray-900 mb-4 group-hover:text-primary-600 transition-colors"
-                          style={{ fontFamily: 'cursive' }}
+                          className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors"
                         >
                           {service.name}
                         </h2>
