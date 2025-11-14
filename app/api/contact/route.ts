@@ -26,10 +26,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email using Resend
-    // NOTE: In production, verify your domain at resend.com/domains and update the 'from' email
     const { data, error } = await resend.emails.send({
-      from: "ReNewed Power Contact Form <onboarding@resend.dev>",
-      to: ["samuellowe27@gmail.com"], // Change to admin@rnpowerinc.com after domain verification
+      from: "ReNewed Power Contact Form <contact@resend.dev>",
+      to: ["admin@rnpowerinc.com"],
       subject: `Contact Form Submission from ${firstName} ${lastName || ""}`,
       html: `
         <h2>New Contact Form Submission</h2>
